@@ -27,7 +27,10 @@ export default {
   props: ['info'],
   methods: {
     getImg () {
-      return 'http://localhost:8082/manage/' + this.info.path
+      if (!this.info.imgUrl) {
+        return '../../static/default.png'
+      }
+      return 'http://localhost:8082/manage/' + this.info.imgUrl
     },
     toInfo (id) {
       this.$router.push('/main/' + id)

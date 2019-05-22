@@ -34,6 +34,9 @@ export default {
   props: ['info'],
   methods: {
     getImg () {
+      if (!this.info.path) {
+        return '../../static/default.png'
+      }
       return 'http://localhost:8082/manage/' + this.info.path
     },
     toInfo (id) {
