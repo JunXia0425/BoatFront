@@ -1,9 +1,9 @@
 <template>
     <el-main>
-      <goods-filter></goods-filter>
+      <product-filter></product-filter>
       <el-row :gutter="20">
         <el-col :span="4" v-for="(o) in list" :key="o.id" style="margin-bottom: 20px;">
-          <rent-card :info="o"></rent-card>
+          <product-card :info="o"></product-card>
         </el-col>
       </el-row>
       <el-row>
@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import GoodsFilter from '../components/GoodsFilter'
-import RentCard from '../components/RentCard'
+import ProductFilter from '../components/ProductFilter'
+import ProductCard from '../components/ProductCard'
 export default {
-  name: 'show',
+  name: 'ProductShow',
   data () {
     return {
       list: [],
@@ -37,8 +37,8 @@ export default {
   },
   methods: {
     getData () {
-      var url = '/api/api/leasing-yacht/list'
-      this.$axios.post(url, {yachtPage: {current: this.current, size: 12}, query: this.query}).then((response) => {
+      var url = '/api/api/product/list/condition'
+      this.$axios.post(url, {productPage: {current: this.current, size: 12}, query: this.query}).then((response) => {
         var result = response.data.result
         this.list = result.records
         this.total = result.total
@@ -63,10 +63,10 @@ export default {
   },
   computed: {
     query () {
-      return this.$store.getters.getChoice
+      return this.$store.getters.getPChoice
     }
   },
-  components: {RentCard, GoodsFilter}
+  components: {ProductCard, ProductFilter}
 }
 </script>
 

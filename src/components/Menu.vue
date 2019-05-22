@@ -23,7 +23,7 @@
       <el-menu-item index="/nautical-knowlege">航海知识</el-menu-item>
     </el-submenu>
     <el-menu-item index="/suporting">游艇配套</el-menu-item>
-    <el-menu-item index="/news">新技术</el-menu-item>
+    <el-menu-item index="/newtech">新技术</el-menu-item>
     <el-menu-item index="/articlelist/54e014ff3fb1e1e1bcb38c9c009f1cba">新闻资讯</el-menu-item>
   </el-menu>
 </template>

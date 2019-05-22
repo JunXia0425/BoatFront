@@ -24,9 +24,9 @@
 
 <script>
 import ItemCard from '../components/ItemCard'
-import GoodsFilter from '../components/GoodsFilter'
+import GoodsFilter from '../components/YachtFilter'
 export default {
-  name: 'show',
+  name: 'Show',
   data () {
     return {
       list: [],

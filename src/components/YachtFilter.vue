@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  name: 'GoodsFilter',
+  name: 'YachtFilter',
   data () {
     return {
       tabData: {

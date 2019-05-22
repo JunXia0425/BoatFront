@@ -7,7 +7,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-form ref="form" :model="form" label-width="80px">
+    <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       <el-row>
       <el-col>
         <el-form-item label="游艇型号">
@@ -110,34 +110,34 @@
           <el-divider></el-divider>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-if="needInvoice">
         <el-col :span="12">
-          <el-form-item label="发票抬头">
+          <el-form-item label="发票抬头" prop="title">
             <el-input v-model="form.invoice.invoiceTitle"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="发票明细">
+          <el-form-item label="发票明细" prop="detial">
             <el-input v-model="form.invoice.invoiceDetials" :disabled="true"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="邮寄地址">
+          <el-form-item label="邮寄地址" prop="address">
             <el-input v-model="form.invoice.postAddress"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="邮政编码">
+          <el-form-item label="邮政编码" prop="postcode">
             <el-input v-model="form.invoice.postcode"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="收件人">
+          <el-form-item label="收件人" prop="addressee">
             <el-input v-model="form.invoice.addressee"></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="联系电话">
+          <el-form-item label="联系电话" prop="phone">
             <el-input v-model="form.invoice.phone"></el-input>
           </el-form-item>
         </el-col>
@@ -154,11 +154,31 @@
 export default {
   name: 'YachtAdvance',
   data () {
+    var validatePostcode = (rule, value, callback) => {
+      let regx = '/^[0-9]{6}$/'
+      let re = new RegExp(regx)
+      if (value === '') {
+        callback(new Error('请输入邮编'))
+      } else if (re.test(value) !== true) {
+        callback(new Error('邮编格式错误'))
+      } else {
+        if (this.form.invoice.postcode !== '') {
+          this.$refs.ruleForm.validateField('checkPostcode')
+        }
+        callback()
+      }
+    }
+    let yachtName = this.$store.state.yachtName
     return {
+      // rules: {
+      //   title: [{ require: true, message: '请输入发票抬头', trigger: 'blur'
+      //   }]
+      // },
+
       needInvoice: false,
       form: {
         advanceOrder: {
-          yachtName: this.yachtName,
+          yachtName: yachtName,
           tripDate: '',
           tripTime: '',
           route: '',
@@ -185,35 +205,53 @@ export default {
     }
   },
   computed: {
-    yachtName () {
-      return this.$store.state.yachtName
+    rules () {
+      return {
+        title: [
+          {require: this.needInvoice, message: '请输入发票抬头', trigger: 'blur'}
+        ],
+        detial: [
+          {require: this.needInvoice, message: '请输入发票明细', trigger: 'blur'}
+        ],
+        address: [
+          {require: this.needInvoice, message: '请输入邮寄地址', trigger: 'blur'}
+        ],
+        postcode: [
+          {require: this.needInvoice, message: '请输入邮政编码', trigger: 'blur'}
+        ],
+        addressee: [
+          {require: this.needInvoice, message: '请输入收件人', trigger: 'blur'}
+        ],
+        phone: [
+          {require: this.needInvoice, message: '请输入手机号', trigger: 'blur'}
+        ]
+      }
     }
   },
   methods: {
     onSubmit () {
       if (this.needInvoice) {
-        // 先提交发票再提交订单
-        this.$axios.post('api/api/invoice/save', this.form.invoice).then(
+        let url = 'api/api/advance-order/save'
+        this.$axios.post(url, this.form).then(
           res => {
-            let data = res.data
-            if (data.status === 1) {
-              console.log(data.result)
-              this.form.advanceOrder.invoice = data.result
-              this.form.advanceOrder.yachtName = this.yachtName
-              this.$axios.post('api/api/advance-order/save', this.form.advanceOrder).then(
-                res => {
-                  var response = res.data
-                  if (response.status === 1) {
-                    this.$message('预定成功')
-                  } else {
-                    this.$message({
-                      message: response.msg,
-                      type: 'error'
-                    })
-                  }
-                }
-              )
-            }
+            let result = res.data
+            this.$message({
+              message: result.msg,
+              type: result.status === 1 ? 'success' : 'error'
+            })
+            this.$router.push('/rent')
+          }
+        )
+      } else {
+        let url = 'api/api/advance-order/save-no-invoice'
+        this.$axios.post(url, this.form.advanceOrder).then(
+          res => {
+            let result = res.data
+            this.$message({
+              message: result.msg,
+              type: result.status === 1 ? 'success' : 'error'
+            })
+            this.$router.push('/rent')
           }
         )
       }

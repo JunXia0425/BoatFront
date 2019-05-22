@@ -46,7 +46,7 @@
             <tr height="15"></tr>
             <tr>
               <td class="td1">游艇隶属：</td>
-              <td colspan="3">船东</td>
+              <td colspan="3">{{info.belonging===0?'企业':'船东'}}</td>
               <td class="td1">停泊码头：</td>
               <td colspan="3">{{info.wharfName}}</td>
             </tr>
