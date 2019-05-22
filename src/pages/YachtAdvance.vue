@@ -154,20 +154,20 @@
 export default {
   name: 'YachtAdvance',
   data () {
-    var validatePostcode = (rule, value, callback) => {
-      let regx = '/^[0-9]{6}$/'
-      let re = new RegExp(regx)
-      if (value === '') {
-        callback(new Error('请输入邮编'))
-      } else if (re.test(value) !== true) {
-        callback(new Error('邮编格式错误'))
-      } else {
-        if (this.form.invoice.postcode !== '') {
-          this.$refs.ruleForm.validateField('checkPostcode')
-        }
-        callback()
-      }
-    }
+    // var validatePostcode = (rule, value, callback) => {
+    //   let regx = '/^[0-9]{6}$/'
+    //   let re = new RegExp(regx)
+    //   if (value === '') {
+    //     callback(new Error('请输入邮编'))
+    //   } else if (re.test(value) !== true) {
+    //     callback(new Error('邮编格式错误'))
+    //   } else {
+    //     if (this.form.invoice.postcode !== '') {
+    //       this.$refs.ruleForm.validateField('checkPostcode')
+    //     }
+    //     callback()
+    //   }
+    // }
     let yachtName = this.$store.state.yachtName
     return {
       // rules: {
