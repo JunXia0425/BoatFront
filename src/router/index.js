@@ -7,11 +7,10 @@ import index from '@/pages/index'
 import YachtInfo from '../pages/YachtInfo'
 import YachtAdvance from '../pages/YachtAdvance'
 import Form from '@/components/Form'
-import About from '@/components/About'
 import leasingshow from '../pages/LeasingShow'
 import Main from '../pages/Main'
 import ProductFilter from '../components/ProductFilter'
-import ProductShow from "../pages/ProductShow";
+import ProductShow from '../pages/ProductShow'
 
 Vue.use(Router)
 
@@ -23,7 +22,6 @@ export default new Router({
     },
     {
       path: '/yachtshow',
-      name: 'index',
       component: index,
       children: [
         {

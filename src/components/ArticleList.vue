@@ -25,8 +25,8 @@ export default {
     }
   },
   methods: {
-    getData (menuid) {
-      var url = '/api/api/article/list/' + menuid
+    getData () {
+      var url = '/api/api/article/list/' + this.$route.params.menuid
       this.$axios.post(url, {
         current: 1,
         size: 10
@@ -39,7 +39,10 @@ export default {
     }
   },
   mounted () {
-    this.getData(this.$route.params.menuid)
+    this.getData()
+  },
+  watch: {
+    '$route': 'getData'
   }
 }
 </script>
