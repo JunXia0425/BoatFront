@@ -8,9 +8,14 @@ const store = new Vuex.Store({
     choice: [],
     pChoice: [],
     lChoice: [],
-    yachtName: ''
+    yachtName: '',
+    keyWord: ''
   },
   mutations: {
+    putKeyWord (state, keyWord) {
+      state.keyWord = keyWord
+      Vue.set(state, 'keyWord', state.keyWord)
+    },
     add (state, item) {
       state.choice.push(item)
       Vue.set(state, 'choice', state.choice)
@@ -122,6 +127,9 @@ const store = new Vuex.Store({
         classification,
         region
       }
+    },
+    getKeyWord (state) {
+      return state.keyWord
     }
   }
 })

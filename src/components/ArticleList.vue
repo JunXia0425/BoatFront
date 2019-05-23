@@ -4,7 +4,10 @@
       <el-card>
         <div class="news-page">
           <div class="page-header">
-            <h2>{{menu.name}}</h2>
+            <el-row style="padding-bottom: 10px">
+              <el-col :span="18"><h2>{{menu.name}}</h2></el-col>
+              <el-col :span="6"><search></search></el-col>
+            </el-row>
           </div>
           <div class="archive-list">
             <ul>
@@ -28,8 +31,10 @@
 </template>
 
 <script>
+import Search from './Search'
 export default {
   name: 'ArticleList',
+  components: {Search},
   data () {
     return {
       menu: {},
@@ -42,10 +47,13 @@ export default {
   methods: {
     getData () {
       this.getMenu()
-      var url = '/api/api/article/list/' + this.$route.params.menuid
-      this.$axios.post(url, {
-        current: 1,
-        size: 10
+      this.$axios.post('api/api/article/list/condition', {
+        articlePage: {
+          current: this.current,
+          size: 10
+        },
+        menuId: this.$route.params.menuid,
+        keyWord: this.keyWord
       }).then(response => {
         var result = response.data.result
         this.articles = result.records
@@ -72,6 +80,11 @@ export default {
   },
   watch: {
     '$route': 'getData'
+  },
+  computed: {
+    keyWord () {
+      return this.$store.state.keyWord
+    }
   }
 }
 </script>
@@ -83,10 +96,10 @@ export default {
 
   .page-header {
     margin-bottom: 10px;
+    border-bottom: 1px solid #DDD;
   }
 
   .page-header h1 {
-    border-bottom: 1px solid #DDD;
     font-size: 24px;
     font-weight: 500;
     color: #333;
@@ -94,7 +107,6 @@ export default {
   }
 
   .page-header h2 {
-    border-bottom: 1px solid #DDD;
     font-size: 24px;
     font-weight: 500;
     color: #333;

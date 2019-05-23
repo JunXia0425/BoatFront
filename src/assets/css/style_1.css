@@ -281,7 +281,7 @@
 	padding:0;
 	width:306px;
 	background:url("../img/bg17.jpg") 0 0 no-repeat;}
-	
+
 /*玩法详情*/
 .banner{
 	position:relative;
@@ -1195,12 +1195,10 @@
 	position:relative;
 	margin:0 !important;
 	height:169px;
-	overflow:hidden;}	
+	overflow:hidden;}
 .rent_manage .order_h span i{
 	font-style:inherit;
 	color:#cc3816;}
-.rent_manage .order_cn .img_cn{
-	width:}
 .rent_manage .order_cn .img_cn h3 a{
 	display:inline-block;
 	margin-left:10px;
@@ -1322,8 +1320,8 @@
 	font-size:12px;
 	line-height:1.9;
 	color:#666666;}
-	
-	
+
+
 /*-----------套餐详情-----------------*/
 .public .review{
 	width:1080px;
@@ -1378,7 +1376,7 @@
 	color:#666666;}
 .public .review .review_x .left .x_fl .ul_x{
 	padding-bottom:12px;
-	display:block;}	
+	display:block;}
 .public .review .review_x .left .x_fl .ul_x li{
 	float:left;
 	margin-right:2px;
@@ -1466,7 +1464,7 @@
 	color:#fff;
 	background:#44c7c8;
 	border:1px solid #44c7c8;}
-	
+
 .package{
 	height:159px;}
 .package .package_column_ct{
@@ -1736,7 +1734,7 @@
 	font-family:"宋体";
 	font-size:14px;
 	color:#333333;}
-	
+
 /*模拟下拉框*/
 .options{
 	position:relative;
@@ -1763,7 +1761,7 @@
 	color:#666666;}
 .options ul li a:hover{
 	background:#cccccc;}
-	
+
 /*--------注册----------------------*/
 .zhuche{}
 .zhuche .landing_man{
@@ -2043,7 +2041,7 @@
 	color:#FFFFFF;}
 .order_list_right .order_l .xx_list_gl .anniu01:hover{
 	background:#44c7c8;}
-	
+
 /*评价*/
 .order_list_right .window_pj2{
 	width:808px;

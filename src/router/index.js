@@ -9,7 +9,6 @@ import YachtAdvance from '../pages/YachtAdvance'
 import Form from '@/components/Form'
 import leasingshow from '../pages/LeasingShow'
 import Main from '../pages/Main'
-import ProductFilter from '../components/ProductFilter'
 import ProductShow from '../pages/ProductShow'
 
 Vue.use(Router)
@@ -109,9 +108,6 @@ export default new Router({
     {
       path: '/form',
       component: Form
-    }, {
-      path: '/about',
-      component: ProductFilter
     }
 
   ]

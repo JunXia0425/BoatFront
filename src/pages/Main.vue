@@ -1,5 +1,6 @@
 <template>
   <div id="main">
+    <slider></slider>
     <div class="summary">
       <div class="title c">
         <div class="left fl">
@@ -110,8 +111,10 @@
 </template>
 
 <script>
+import Slider from '../components/Slider'
 export default {
   name: 'Main',
+  components: {Slider},
   data () {
     return {
       info: {}
