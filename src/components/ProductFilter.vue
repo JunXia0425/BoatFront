@@ -1,36 +1,41 @@
 <template>
   <div style="padding-bottom: 20px;">
-    <el-row>
-      <el-col>
-        <span>你的选择：</span>
-        <ul class="choice">
-          <li v-for="(item,index) in $store.state.pChoice" @click="deleteitem(item)" :key="index" class="el-icon-close">{{item.val.subTitle}}
-          </li>
-        </ul>
-      </el-col>
-      <el-col>
+    <el-card>
+      <el-row>
         <el-row>
-          <el-col>
-            <span>类别：</span>
-            <ul ref="ul-type">
-              <li v-for="(item,index) in tabData.type.list" @click="addtolist('type',item,$event)"
-                  :key="index">{{item.subTitle}}
-              </li>
-            </ul>
-          </el-col>
+          <el-divider content-position="left"><h3 class="el-icon-setting">找配件</h3></el-divider>
         </el-row>
-        <el-row>
-          <el-col>
-            <span>产地：</span>
-            <ul ref="ul-region">
-              <li v-for="(item,index) in tabData.region.list" @click="addtolist('region',item,$event)"
-                  :key="index">{{item.subTitle}}
-              </li>
-            </ul>
-          </el-col>
-        </el-row>
-      </el-col>
-    </el-row>
+        <el-col>
+          <span>你的选择：</span>
+          <ul class="choice">
+            <li v-for="(item,index) in $store.state.pChoice" @click="deleteitem(item)" :key="index" class="el-icon-close">{{item.val.subTitle}}
+            </li>
+          </ul>
+        </el-col>
+        <el-col>
+          <el-row>
+            <el-col>
+              <span>类别：</span>
+              <ul ref="ul-type">
+                <li v-for="(item,index) in tabData.type.list" @click="addtolist('type',item,$event)"
+                    :key="index">{{item.subTitle}}
+                </li>
+              </ul>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col>
+              <span>产地：</span>
+              <ul ref="ul-region">
+                <li v-for="(item,index) in tabData.region.list" @click="addtolist('region',item,$event)"
+                    :key="index">{{item.subTitle}}
+                </li>
+              </ul>
+            </el-col>
+          </el-row>
+        </el-col>
+      </el-row>
+    </el-card>
   </div>
 </template>
 
@@ -129,7 +134,7 @@ export default {
   li {
     display: inline-block;
     margin: 0 10px;
-    line-height: 50px;
+    line-height: 35px;
     cursor: pointer;
   }
 
@@ -137,14 +142,14 @@ export default {
     display: inline-block;
     float: left;
     margin-left: 30px;
-    line-height: 50px;
+    line-height: 35px;
   }
 
   .choice li {
     line-height: 1;
     border: 1px solid #28a5c4;
     padding: 2px 5px 2px 5px;
-    margin-top: 12px;
+    margin-top: 5px;
     color: #28a5c4;
     text-align: center;
   }

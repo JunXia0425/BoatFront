@@ -1,7 +1,7 @@
 <template>
     <el-main>
-      <goods-filter></goods-filter>
-      <el-row :gutter="20">
+      <yacht-filter></yacht-filter>
+      <el-row :gutter="20" style="min-height: 500px">
         <el-col :span="4" v-for="(o) in list" :key="o.id" style="margin-bottom: 20px;">
           <ItemCard :info="o"></ItemCard>
         </el-col>
@@ -24,7 +24,7 @@
 
 <script>
 import ItemCard from '../components/ItemCard'
-import GoodsFilter from '../components/YachtFilter'
+import YachtFilter from '../components/YachtFilter'
 export default {
   name: 'Show',
   data () {
@@ -66,7 +66,7 @@ export default {
       return this.$store.getters.getChoice
     }
   },
-  components: {ItemCard, GoodsFilter}
+  components: {YachtFilter, ItemCard}
 }
 </script>
 

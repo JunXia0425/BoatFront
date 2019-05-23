@@ -1,7 +1,7 @@
 <template>
     <el-main>
       <leasing-filter></leasing-filter>
-      <el-row :gutter="20">
+      <el-row :gutter="20" style="min-height: 550px">
         <el-col :span="4" v-for="(o) in list" :key="o.id" style="margin-bottom: 20px;">
           <rent-card :info="o"></rent-card>
         </el-col>

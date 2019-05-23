@@ -26,10 +26,10 @@
           </li>
         </ul><!--ul_list end -->
         <div class="column c">
-          <div class="fl"><a href="http://www.zutingwan.com/" target="_self"><img src="/templates/img/logo3.jpg" width="84" height="38" alt="租艇玩|游艇租赁平台"></a></div>
+          <div class="fl"><a href="http://localhost:8082/manage/login" target="_self"><img src="../assets/img/login2.png" width="50" height="50" alt="租艇玩|游艇租赁平台"></a></div>
           <div class="title fl">
-            游艇门户精艇网旗下<br>
-            游艇租赁分享平台&amp;游艇消费文化缔造与推广领航者
+            快快加入我们<br>
+            点击这里登录
           </div>
         </div><!--column end -->
       </div><!--footer_f end -->

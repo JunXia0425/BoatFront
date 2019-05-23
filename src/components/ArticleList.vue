@@ -1,24 +1,30 @@
 <template>
-  <div class="news-page">
-    <div class="page-header">
-      <h2>{{menu.name}}</h2>
-    </div>
-    <div class="archive-list">
-      <ul>
-        <li v-for="article in articles" :key="article.id">
-          <h4><a href=""
-                 @click.prevent="toArticle(article.id)">{{article.title}}<span>{{article.lastEditTime}}</span></a></h4>
-        </li>
-      </ul>
-      <el-pagination
-        layout="total, prev, pager, next"
-        :total="this.total"
-        :current-page="this.current"
-        @current-change="currentChange"
-        background>
-      </el-pagination>
-    </div>
-  </div>
+  <el-container>
+    <el-main>
+      <el-card>
+        <div class="news-page">
+          <div class="page-header">
+            <h2>{{menu.name}}</h2>
+          </div>
+          <div class="archive-list">
+            <ul>
+              <li v-for="article in articles" :key="article.id">
+                <h4><a href=""
+                       @click.prevent="toArticle(article.id)">{{article.title}}<span>{{article.lastEditTime}}</span></a></h4>
+              </li>
+            </ul>
+          </div>
+          <el-pagination
+            layout="total, prev, pager, next"
+            :total="this.total"
+            :current-page="this.current"
+            @current-change="currentChange"
+            background>
+          </el-pagination>
+        </div>
+      </el-card>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -98,6 +104,10 @@ export default {
 
   ol, ul {
     list-style: none;
+  }
+  .archive-list{
+    min-height: 550px;
+    padding: 10px 20px 10px 20px;
   }
 
   .archive-list li {
