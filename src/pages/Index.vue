@@ -4,11 +4,11 @@
       <el-header>
         <Menu></Menu>
       </el-header>
-      <el-main>
+      <el-main style="min-height: 500px">
           <router-view></router-view>
       </el-main>
       <el-footer>
-        <div class="footer"></div>
+        <my-footer></my-footer>
       </el-footer>
     </el-container>
   </div>
@@ -16,17 +16,12 @@
 
 <script>
 import Menu from '../components/Menu'
+import MyFooter from '../components/MyFooter'
 
 export default {
   name: 'Index',
-  components: {Menu}
+  components: {MyFooter, Menu}
 }
 </script>
-
 <style scoped>
-  .footer {
-    width: 100%;
-    height: 100px;
-    background-color: #28a5c4;
-  }
 </style>

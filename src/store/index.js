@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
     choice: [],
     pChoice: [],
+    lChoice: [],
     yachtName: ''
   },
   mutations: {
@@ -16,6 +17,14 @@ const store = new Vuex.Store({
     },
     remove (state, index) {
       state.choice.splice(index, 1)
+      Vue.set(state, 'choice', state.choice)
+    },
+    addL (state, item) {
+      state.lChoice.push(item)
+      Vue.set(state, 'choice', state.choice)
+    },
+    removeL (state, index) {
+      state.lChoice.splice(index, 1)
       Vue.set(state, 'choice', state.choice)
     },
     addP (state, item) {
@@ -78,6 +87,37 @@ const store = new Vuex.Store({
       )
       return {
         price,
+        length,
+        classification,
+        region
+      }
+    },
+    getLChoice (state) {
+      let length
+      let classification
+      let region
+      let wharf
+      state.lChoice.find(
+        item => {
+          if (item.index === 'length') {
+            length = {
+              max: item.val.val.max,
+              min: item.val.val.min
+            }
+          }
+          if (item.index === 'classification') {
+            classification = item.val.id
+          }
+          if (item.index === 'region') {
+            region = item.val.subTitle
+          }
+          if (item.index === 'wharf') {
+            wharf = item.val.id
+          }
+        }
+      )
+      return {
+        wharf,
         length,
         classification,
         region

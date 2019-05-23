@@ -3,7 +3,7 @@
     :default-active="'1'"
     class="el-menu-demo"
     mode="horizontal"
-    background-color="#545c64"
+    background-color="#2b2d2d"
     text-color="#fff"
     active-text-color="#ffd04b"
   router>

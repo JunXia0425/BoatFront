@@ -10,8 +10,13 @@
                  @click.prevent="toArticle(article.id)">{{article.title}}<span>{{article.lastEditTime}}</span></a></h4>
         </li>
       </ul>
-      <div class="multipage">
-      </div>
+      <el-pagination
+        layout="total, prev, pager, next"
+        :total="this.total"
+        :current-page="this.current"
+        @current-change="currentChange"
+        background>
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -21,7 +26,10 @@ export default {
   name: 'ArticleList',
   data () {
     return {
-      articles: []
+      articles: [],
+      total: 0,
+      current: 0,
+      size: 0
     }
   },
   methods: {
@@ -31,11 +39,18 @@ export default {
         current: 1,
         size: 10
       }).then(response => {
-        this.articles = response.data.result.records
+        var result = response.data.result
+        this.articles = result.records
+        this.total = result.total
+        this.current = result.current
+        this.size = result.size
       })
     },
     toArticle (id) {
       this.$router.push('/article/' + id)
+    },
+    currentChange (currentPage) {
+      this.current = currentPage
     }
   },
   mounted () {

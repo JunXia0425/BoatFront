@@ -1,6 +1,6 @@
 <template>
     <el-main>
-      <goods-filter></goods-filter>
+      <leasing-filter></leasing-filter>
       <el-row :gutter="20">
         <el-col :span="4" v-for="(o) in list" :key="o.id" style="margin-bottom: 20px;">
           <rent-card :info="o"></rent-card>
@@ -25,6 +25,7 @@
 <script>
 import GoodsFilter from '../components/YachtFilter'
 import RentCard from '../components/RentCard'
+import LeasingFilter from '../components/LeasingFilter'
 export default {
   name: 'LeasingShow',
   data () {
@@ -63,10 +64,10 @@ export default {
   },
   computed: {
     query () {
-      return this.$store.getters.getChoice
+      return this.$store.getters.getLChoice
     }
   },
-  components: {RentCard, GoodsFilter}
+  components: {LeasingFilter, RentCard, GoodsFilter}
 }
 </script>
 

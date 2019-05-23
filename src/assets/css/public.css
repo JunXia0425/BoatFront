@@ -25,8 +25,6 @@ select{
 	padding:2px 0;
 	height:22px;
 	line-height:18px;}
-button,input,select,textarea{
-	font-size:100%;}
 button,input[type="button"],input[type="reset"],input[type="submit"]{
 	cursor:pointer;
 	-webkit-appearance:button;}
@@ -38,11 +36,6 @@ del{
 	text-decoration:line-through;}
 mark{
 	background:#ff0;}
-sub,sup{
-	position:relative;
-	font-size:75%;
-	line-height:0;
-	vertical-align:baseline;}
 sup{
 	top:-0.5em;}
 sub{
@@ -54,14 +47,11 @@ th{
 	text-align:inherit;}
 iframe{
 	display:block;}
-html, body{
-	overflow-x:hidden;}
 body{
 	-webkit-text-size-adjust:100%;
 	-ms-text-size-adjust:100%;
 	word-wrap:break-word;
 	word-break:break-all;
-	font:12px/1.5 tahoma,"microsoft yahei","\5FAE\8F6F\96C5\9ED1",Arial;
 	color:#000;
 	background:#fff;}
 /*reset end*/
@@ -324,7 +314,7 @@ text-justify:inter-ideograph;
 	height:10px;
 	background:url("../img/icong4.png") 0 0 no-repeat;}
 
-	
+
 /*底部*/
 #footer{
 	margin-top:71px;
@@ -393,9 +383,9 @@ text-justify:inter-ideograph;
 	color:#6a6b6b;}
 .footer_man .link a:hover{
 	color:#f6f6f6;}
-	
 
-	
+
+
 #float{
 	position:absolute;
 	right:1.5%;
