@@ -38,7 +38,7 @@
         </el-row>
         <el-row>
           <el-col>
-            <div v-html="info.description" style="padding: 20px 50px;min-height: 450px">
+            <div v-html="info.description" style="padding: 20px 50px;min-height: 550px">
             </div>
           </el-col>
         </el-row>

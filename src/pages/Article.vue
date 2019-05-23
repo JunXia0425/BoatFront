@@ -8,7 +8,7 @@
               <el-divider>编辑：{{article.editor}}    时间：{{article.lastEditTime}}</el-divider>
           </el-col>
           <el-col>
-            <div class="content" v-html="article.content" style="padding: 20px 50px;min-height: 450px;"></div>
+            <div class="content" v-html="article.content" style="padding: 20px 50px;min-height: 570px;"></div>
           </el-col>
         </el-row>
       </el-card>
