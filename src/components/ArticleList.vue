@@ -1,7 +1,7 @@
 <template>
   <div class="news-page">
     <div class="page-header">
-      <h2>文章列表</h2>
+      <h2>{{menu.name}}</h2>
     </div>
     <div class="archive-list">
       <ul>
@@ -26,6 +26,7 @@ export default {
   name: 'ArticleList',
   data () {
     return {
+      menu: {},
       articles: [],
       total: 0,
       current: 0,
@@ -34,6 +35,7 @@ export default {
   },
   methods: {
     getData () {
+      this.getMenu()
       var url = '/api/api/article/list/' + this.$route.params.menuid
       this.$axios.post(url, {
         current: 1,
@@ -51,6 +53,12 @@ export default {
     },
     currentChange (currentPage) {
       this.current = currentPage
+    },
+    getMenu () {
+      var url = '/api/api/menu'
+      this.$axios.post(url, {id: this.$route.params.menuid}).then(res => {
+        this.menu = res.data.result
+      })
     }
   },
   mounted () {
