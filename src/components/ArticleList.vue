@@ -41,7 +41,8 @@ export default {
       articles: [],
       total: 0,
       current: 0,
-      size: 0
+      size: 0,
+      keyWord: ''
     }
   },
   methods: {
@@ -79,13 +80,18 @@ export default {
     this.getData()
   },
   watch: {
-    '$route': 'getData'
-  },
-  computed: {
-    keyWord () {
-      return this.$store.state.keyWord
+    '$route': 'getData',
+    '$store.state.keyWord': function () {
+      this.keyWord = this.$store.getters.getKeyWord
+      this.getData()
     }
   }
+  // computed: {
+  //   keyWord () {
+  //     console.log('变化')
+  //     return this.$store.getters.getKeyWord
+  //   }
+  // }
 }
 </script>
 

@@ -16,6 +16,9 @@ const store = new Vuex.Store({
       state.keyWord = keyWord
       Vue.set(state, 'keyWord', state.keyWord)
     },
+    removeKeyWord (state) {
+      state.keyWord = ''
+    },
     add (state, item) {
       state.choice.push(item)
       Vue.set(state, 'choice', state.choice)
