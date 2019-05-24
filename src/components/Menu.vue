@@ -25,6 +25,9 @@
     <el-menu-item index="/suporting">游艇配套</el-menu-item>
     <el-menu-item index="/newtech">新技术</el-menu-item>
     <el-menu-item index="/articlelist/54e014ff3fb1e1e1bcb38c9c009f1cba">新闻资讯</el-menu-item>
+    <el-menu-item style="float: right;padding-right: 50px">
+      <el-link :underline="false" class="el-icon-user" href="http://localhost:8082/manage/login">登录</el-link>
+    </el-menu-item>
   </el-menu>
 </template>
 

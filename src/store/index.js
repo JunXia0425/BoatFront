@@ -54,7 +54,7 @@ const store = new Vuex.Store({
       state.pChoice.find(
         item => {
           if (item.index === 'type') {
-            type = item.val.val
+            type = item.val.id
           }
           if (item.index === 'region') {
             region = item.val.subTitle

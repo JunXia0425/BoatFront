@@ -46,19 +46,7 @@ export default {
     return {
       tabData: {
         type: {
-          list: [
-            {
-              subTitle: '发电机',
-              val: 1
-            },
-            {
-              subTitle: '蓄电池',
-              val: 2
-            }, {
-              subTitle: '传感器',
-              val: 3
-            }
-          ]
+          list: []
         },
         region: {
           list: []
@@ -111,10 +99,25 @@ export default {
           })
         }
       )
+    },
+    getTypes () {
+      var url = 'api/api/product-type/list'
+      this.$axios.get(url).then(
+        response => {
+          var result = response.data.result
+          result.forEach(item => {
+            this.tabData.type.list.push({
+              subTitle: item.type,
+              id: item.id
+            })
+          })
+        }
+      )
     }
   },
   mounted () {
     this.getRegions()
+    this.getTypes()
   }
 }
 </script>

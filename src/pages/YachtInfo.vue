@@ -9,11 +9,11 @@
                 <table width="100%">
                   <tbody>
                   <tr>
-                    <td width="70" class="td1">游艇名称:</td>
+                    <td width="70" class="td1">游艇名称：</td>
                     <td width="200" style="font-size: 20px;font-weight: bold;">{{info.name}}</td>
-                    <td width="46" class="td1">艇长:</td>
+                    <td width="46" class="td1">艇长：</td>
                     <td width="186">{{info.length}} 米</td>
-                    <td width="70" class="td1">最高航速:</td>
+                    <td width="70" class="td1">最高航速：</td>
                     <td width="200">{{info.maxSpeed?info.maxSpeed:'-'}} 节</td>
                   </tr>
                   <tr height="10"></tr>
@@ -24,7 +24,7 @@
                     <td width="186">{{info.year}}</td>
                     <td width="59" class="td1">售价：</td>
                     <td width="144">{{info.price}} 万元</td>
-                    <td width="59" class="td1">游艇类型：</td>
+                    <td width="70" class="td1">游艇类型：</td>
                     <td width="200">{{info.classificationName}}</td>
                   </tr>
                   </tbody>

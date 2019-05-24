@@ -10,6 +10,7 @@ import Form from '@/components/Form'
 import leasingshow from '../pages/LeasingShow'
 import Main from '../pages/Main'
 import ProductShow from '../pages/ProductShow'
+import Welcome from '../pages/Welcome'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/yachtshow'
+      component: Welcome
     },
     {
       path: '/yachtshow',
