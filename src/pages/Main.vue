@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <slider></slider>
+    <slider v-bind:yacht-id="this.$route.params.id"></slider>
     <div class="summary">
       <div class="title c">
         <div class="left fl">

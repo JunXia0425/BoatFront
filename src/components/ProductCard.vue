@@ -7,15 +7,16 @@
       <div class="bottom clearfix">
         <el-row>
           <el-col>
-            描述：<span>{{info.description}}</span>
+            类别：<span>{{info.typeName}}</span>
           </el-col>
           <el-col>
             产地：<span>{{info.region}}</span>
           </el-col>
-<!--          <el-col>-->
-<!--            价格：<span>{{info.price}}</span>-->
-<!--          </el-col>-->
+          <el-col>
+            价格：<span>{{info.price}}</span> 元
+          </el-col>
         </el-row>
+        <el-button type="text" class="button" @click="toInfo(info.id)">详情</el-button>
       </div>
     </div>
   </el-card>
@@ -33,7 +34,7 @@ export default {
       return 'http://localhost:8082/manage/' + this.info.imgUrl
     },
     toInfo (id) {
-      this.$router.push('/main/' + id)
+      this.$router.push('/productinfo/' + id)
     }
   }
 

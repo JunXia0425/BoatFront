@@ -11,6 +11,7 @@ import leasingshow from '../pages/LeasingShow'
 import Main from '../pages/Main'
 import ProductShow from '../pages/ProductShow'
 import Welcome from '../pages/Welcome'
+import ProductInfo from '../pages/ProductInfo'
 
 Vue.use(Router)
 
@@ -91,6 +92,10 @@ export default new Router({
         {
           path: '/yachtinfo/:id',
           component: YachtInfo
+        },
+        {
+          path: '/productinfo/:id',
+          component: ProductInfo
         },
         {
           path: '/rent',
