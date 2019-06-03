@@ -80,6 +80,9 @@ export default {
     this.getData()
   },
   watch: {
+    current: function () {
+      this.getData()
+    },
     '$route': 'getData',
     '$store.state.keyWord': function () {
       this.keyWord = this.$store.getters.getKeyWord
