@@ -18,7 +18,7 @@
         <el-col>
           限载人数：<span>{{info.maxpeople}}人</span>
         </el-col>
-          <el-col>
+          <el-col style="height: 50px">
             停泊码头：<span>{{info.wharfName}}</span>
           </el-col>
         </el-row>
