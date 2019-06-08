@@ -31,6 +31,13 @@
               <td width="200">{{info.classificationName}}</td>
             </tr>
             </tbody>
+            <tfoot>
+            <el-row type="flex" justify="center" style="width: 100%">
+              <el-col style="padding-top: 20px;">
+                <el-button type="primary" round size="medium" @click="$router.push({name : 'buy',params: {info}})">我要购买</el-button>
+              </el-col>
+            </el-row>
+            </tfoot>
           </table>
 
         </div><!--top_t end -->

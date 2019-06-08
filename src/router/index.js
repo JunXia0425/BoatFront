@@ -12,6 +12,7 @@ import Main from '../pages/Main'
 import ProductShow from '../pages/ProductShow'
 import Welcome from '../pages/Welcome'
 import ProductInfo from '../pages/ProductInfo'
+import Buying from '../pages/Buying'
 
 Vue.use(Router)
 
@@ -108,6 +109,11 @@ export default new Router({
         {
           path: '/advance/:id',
           component: YachtAdvance
+        },
+        {
+          path: '/buying',
+          name: 'buy',
+          component: Buying
         }
       ]
     },
